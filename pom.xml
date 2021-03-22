@@ -47,7 +47,7 @@
     </dependency>
     <dependency>
       <groupId>ca.uhn.hapi.fhir</groupId>
-      <artifactId>hapi-fhir-structures-r4</artifactId>
+      <artifactId>org.hl7.fhir.r4</artifactId>
       <version>5.3.6</version>
     </dependency>
   </dependencies>
