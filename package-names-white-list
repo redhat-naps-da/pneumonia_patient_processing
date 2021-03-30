@@ -1,1 +1,3 @@
 org.hl7.fhir.r4.model.Observation
+org.hl7.fhir.r4.model.Patient
+org.hl7.fhir.r4.model.Encounter
