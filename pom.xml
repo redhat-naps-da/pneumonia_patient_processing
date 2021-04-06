@@ -3,7 +3,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.redhat.naps.pneumonia</groupId>
-  <artifactId>pneumonia_patient_processing</artifactId>
+  <artifactId>pneumonia-patient-processing-kjar</artifactId>
   <version>1.0.0</version>
   <packaging>kjar</packaging>
   <name>pneumonia-patient-processing-kjar</name>
