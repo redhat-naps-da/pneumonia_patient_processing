@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_7rnFUJe8EeueUZy3NQNgHA" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
-  <bpmn2:itemDefinition id="_ObservationItem" structureRef="org.hl7.fhir.r4.model.Observation"/>
-  <bpmn2:itemDefinition id="_EncounterItem" structureRef="org.hl7.fhir.r4.model.Encounter"/>
-  <bpmn2:itemDefinition id="_PatientItem" structureRef="org.hl7.fhir.r4.model.Patient"/>
+<bpmn2:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.omg.org/bpmn20" xmlns:bpmn2="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:bpsim="http://www.bpsim.org/schemas/1.0" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:drools="http://www.jboss.org/drools" id="_aoVcMJe9EeueUZy3NQNgHA" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd http://www.jboss.org/drools drools.xsd http://www.bpsim.org/schemas/1.0 bpsim.xsd http://www.omg.org/spec/DD/20100524/DC DC.xsd http://www.omg.org/spec/DD/20100524/DI DI.xsd " exporter="jBPM Process Modeler" exporterVersion="2.0" targetNamespace="http://www.omg.org/bpmn20">
+  <bpmn2:itemDefinition id="_observationIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_observationStatusItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_patientIdItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="_patientStatusItem" structureRef="String"/>
   <bpmn2:itemDefinition id="__FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__FCEDEDAB-ADF7-4505-984B-410177C1AAAE_PriorityInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__FCEDEDAB-ADF7-4505-984B-410177C1AAAE_CommentInputXItem" structureRef="Object"/>
@@ -27,10 +28,15 @@
   <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_NotCompletedReassignInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_NotStartedNotifyInputXItem" structureRef="Object"/>
   <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_NotCompletedNotifyInputXItem" structureRef="Object"/>
+  <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusInputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdOutputXItem" structureRef="String"/>
+  <bpmn2:itemDefinition id="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusOutputXItem" structureRef="String"/>
   <bpmn2:process id="pneumonia_patient_processing.Pneumonia_Case_Simple" drools:packageName="com.redhat.naps.pneumonia" drools:version="1.0" drools:adHoc="true" name="Pneumonia_Case_Simple" isExecutable="true" processType="Public">
-    <bpmn2:property id="Observation" itemSubjectRef="_ObservationItem" name="Observation"/>
-    <bpmn2:property id="Encounter" itemSubjectRef="_EncounterItem" name="Encounter"/>
-    <bpmn2:property id="Patient" itemSubjectRef="_PatientItem" name="Patient"/>
+    <bpmn2:property id="observationId" itemSubjectRef="_observationIdItem" name="observationId"/>
+    <bpmn2:property id="observationStatus" itemSubjectRef="_observationStatusItem" name="observationStatus"/>
+    <bpmn2:property id="patientId" itemSubjectRef="_patientIdItem" name="patientId"/>
+    <bpmn2:property id="patientStatus" itemSubjectRef="_patientStatusItem" name="patientStatus"/>
     <bpmn2:sequenceFlow id="_2904F015-98E2-4273-BA57-9836156CB037" sourceRef="_FCEDEDAB-ADF7-4505-984B-410177C1AAAE" targetRef="_CDF00F90-E145-45B0-8582-5D05CE8DD448"/>
     <bpmn2:sequenceFlow id="_D99747FB-27B9-427F-BC81-B68B84F4F471" sourceRef="_70D423D8-AE3D-4B4F-9841-3F1E38A57553" targetRef="_FCEDEDAB-ADF7-4505-984B-410177C1AAAE"/>
     <bpmn2:sequenceFlow id="_A175A163-A3E6-4A53-A287-818DDCCDA427" sourceRef="_795B6C84-7D37-4C04-A7BC-453DE7CEEFE7" targetRef="_70D423D8-AE3D-4B4F-9841-3F1E38A57553">
@@ -53,29 +59,54 @@ Symptoms]]></drools:metaValue>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_A175A163-A3E6-4A53-A287-818DDCCDA427</bpmn2:incoming>
       <bpmn2:outgoing>_D99747FB-27B9-427F-BC81-B68B84F4F471</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_7rnFUZe8EeueUZy3NQNgHA">
+      <bpmn2:ioSpecification id="_aoVcMZe9EeueUZy3NQNgHA">
         <bpmn2:dataInput id="_70D423D8-AE3D-4B4F-9841-3F1E38A57553_TaskNameInputX" drools:dtype="Object" itemSubjectRef="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_TaskNameInputXItem" name="TaskName"/>
+        <bpmn2:dataInput id="_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdInputX" drools:dtype="String" itemSubjectRef="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdInputXItem" name="taskObsId"/>
+        <bpmn2:dataInput id="_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusInputX" drools:dtype="String" itemSubjectRef="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusInputXItem" name="taskObsStatus"/>
         <bpmn2:dataInput id="_70D423D8-AE3D-4B4F-9841-3F1E38A57553_SkippableInputX" drools:dtype="Object" itemSubjectRef="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_SkippableInputXItem" name="Skippable"/>
-        <bpmn2:inputSet id="_7rnFUpe8EeueUZy3NQNgHA">
+        <bpmn2:dataOutput id="_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdOutputX" drools:dtype="String" itemSubjectRef="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdOutputXItem" name="taskObsId"/>
+        <bpmn2:dataOutput id="_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusOutputX" drools:dtype="String" itemSubjectRef="__70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusOutputXItem" name="taskObsStatus"/>
+        <bpmn2:inputSet id="_aoVcMpe9EeueUZy3NQNgHA">
           <bpmn2:dataInputRefs>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_TaskNameInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdInputX</bpmn2:dataInputRefs>
+          <bpmn2:dataInputRefs>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_SkippableInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_7rnFU5e8EeueUZy3NQNgHA"/>
+        <bpmn2:outputSet id="_aoVcM5e9EeueUZy3NQNgHA">
+          <bpmn2:dataOutputRefs>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdOutputX</bpmn2:dataOutputRefs>
+          <bpmn2:dataOutputRefs>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusOutputX</bpmn2:dataOutputRefs>
+        </bpmn2:outputSet>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_7rnFVJe8EeueUZy3NQNgHA">
+      <bpmn2:dataInputAssociation id="_aoVcNJe9EeueUZy3NQNgHA">
         <bpmn2:targetRef>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_7rnFVZe8EeueUZy3NQNgHA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_7rnFVpe8EeueUZy3NQNgHA"><![CDATA[Task]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_7rnFV5e8EeueUZy3NQNgHA">_70D423D8-AE3D-4B4F-9841-3F1E38A57553_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_aoVcNZe9EeueUZy3NQNgHA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_aoVcNpe9EeueUZy3NQNgHA"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_aoVcN5e9EeueUZy3NQNgHA">_70D423D8-AE3D-4B4F-9841-3F1E38A57553_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_7rnFWJe8EeueUZy3NQNgHA">
+      <bpmn2:dataInputAssociation id="_aoVcOJe9EeueUZy3NQNgHA">
+        <bpmn2:sourceRef>observationId</bpmn2:sourceRef>
+        <bpmn2:targetRef>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_aoVcOZe9EeueUZy3NQNgHA">
+        <bpmn2:sourceRef>observationStatus</bpmn2:sourceRef>
+        <bpmn2:targetRef>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusInputX</bpmn2:targetRef>
+      </bpmn2:dataInputAssociation>
+      <bpmn2:dataInputAssociation id="_aoVcOpe9EeueUZy3NQNgHA">
         <bpmn2:targetRef>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_SkippableInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_7rnFWZe8EeueUZy3NQNgHA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_7rnFWpe8EeueUZy3NQNgHA"><![CDATA[false]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_7rnFW5e8EeueUZy3NQNgHA">_70D423D8-AE3D-4B4F-9841-3F1E38A57553_SkippableInputX</bpmn2:to>
+        <bpmn2:assignment id="_aoVcO5e9EeueUZy3NQNgHA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_aoVcPJe9EeueUZy3NQNgHA"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_aoVcPZe9EeueUZy3NQNgHA">_70D423D8-AE3D-4B4F-9841-3F1E38A57553_SkippableInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
+      <bpmn2:dataOutputAssociation id="_aoVcPpe9EeueUZy3NQNgHA">
+        <bpmn2:sourceRef>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsIdOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>observationId</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
+      <bpmn2:dataOutputAssociation id="_aoVcP5e9EeueUZy3NQNgHA">
+        <bpmn2:sourceRef>_70D423D8-AE3D-4B4F-9841-3F1E38A57553_taskObsStatusOutputX</bpmn2:sourceRef>
+        <bpmn2:targetRef>observationStatus</bpmn2:targetRef>
+      </bpmn2:dataOutputAssociation>
     </bpmn2:userTask>
     <bpmn2:endEvent id="_CDF00F90-E145-45B0-8582-5D05CE8DD448">
       <bpmn2:incoming>_2904F015-98E2-4273-BA57-9836156CB037</bpmn2:incoming>
@@ -90,27 +121,27 @@ Symptoms]]></drools:metaValue>
       </bpmn2:extensionElements>
       <bpmn2:incoming>_D99747FB-27B9-427F-BC81-B68B84F4F471</bpmn2:incoming>
       <bpmn2:outgoing>_2904F015-98E2-4273-BA57-9836156CB037</bpmn2:outgoing>
-      <bpmn2:ioSpecification id="_7rnFXJe8EeueUZy3NQNgHA">
+      <bpmn2:ioSpecification id="_aoVcQJe9EeueUZy3NQNgHA">
         <bpmn2:dataInput id="_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_TaskNameInputX" drools:dtype="Object" itemSubjectRef="__FCEDEDAB-ADF7-4505-984B-410177C1AAAE_TaskNameInputXItem" name="TaskName"/>
         <bpmn2:dataInput id="_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputX" drools:dtype="Object" itemSubjectRef="__FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputXItem" name="Skippable"/>
-        <bpmn2:inputSet id="_7rnFXZe8EeueUZy3NQNgHA">
+        <bpmn2:inputSet id="_aoVcQZe9EeueUZy3NQNgHA">
           <bpmn2:dataInputRefs>_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_TaskNameInputX</bpmn2:dataInputRefs>
           <bpmn2:dataInputRefs>_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputX</bpmn2:dataInputRefs>
         </bpmn2:inputSet>
-        <bpmn2:outputSet id="_7rnFXpe8EeueUZy3NQNgHA"/>
+        <bpmn2:outputSet id="_aoVcQpe9EeueUZy3NQNgHA"/>
       </bpmn2:ioSpecification>
-      <bpmn2:dataInputAssociation id="_7rnFX5e8EeueUZy3NQNgHA">
+      <bpmn2:dataInputAssociation id="_aoVcQ5e9EeueUZy3NQNgHA">
         <bpmn2:targetRef>_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_TaskNameInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_7rnFYJe8EeueUZy3NQNgHA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_7rnFYZe8EeueUZy3NQNgHA"><![CDATA[Task]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_7rnFYpe8EeueUZy3NQNgHA">_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_TaskNameInputX</bpmn2:to>
+        <bpmn2:assignment id="_aoVcRJe9EeueUZy3NQNgHA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_aoVcRZe9EeueUZy3NQNgHA"><![CDATA[Task]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_aoVcRpe9EeueUZy3NQNgHA">_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_TaskNameInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
-      <bpmn2:dataInputAssociation id="_7rnFY5e8EeueUZy3NQNgHA">
+      <bpmn2:dataInputAssociation id="_aoVcR5e9EeueUZy3NQNgHA">
         <bpmn2:targetRef>_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputX</bpmn2:targetRef>
-        <bpmn2:assignment id="_7rnFZJe8EeueUZy3NQNgHA">
-          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_7rnFZZe8EeueUZy3NQNgHA"><![CDATA[false]]></bpmn2:from>
-          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_7rnFZpe8EeueUZy3NQNgHA">_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputX</bpmn2:to>
+        <bpmn2:assignment id="_aoVcSJe9EeueUZy3NQNgHA">
+          <bpmn2:from xsi:type="bpmn2:tFormalExpression" id="_aoVcSZe9EeueUZy3NQNgHA"><![CDATA[false]]></bpmn2:from>
+          <bpmn2:to xsi:type="bpmn2:tFormalExpression" id="_aoVcSpe9EeueUZy3NQNgHA">_FCEDEDAB-ADF7-4505-984B-410177C1AAAE_SkippableInputX</bpmn2:to>
         </bpmn2:assignment>
       </bpmn2:dataInputAssociation>
     </bpmn2:userTask>
@@ -118,8 +149,8 @@ Symptoms]]></drools:metaValue>
       <bpmn2:outgoing>_A175A163-A3E6-4A53-A287-818DDCCDA427</bpmn2:outgoing>
     </bpmn2:startEvent>
   </bpmn2:process>
-  <bpmndi:BPMNDiagram id="_7rnsYJe8EeueUZy3NQNgHA">
-    <bpmndi:BPMNPlane id="_7rnsYZe8EeueUZy3NQNgHA" bpmnElement="pneumonia_patient_processing.Pneumonia_Case_Simple">
+  <bpmndi:BPMNDiagram id="_aoVcS5e9EeueUZy3NQNgHA">
+    <bpmndi:BPMNPlane id="_aoVcTJe9EeueUZy3NQNgHA" bpmnElement="pneumonia_patient_processing.Pneumonia_Case_Simple">
       <bpmndi:BPMNShape id="shape__795B6C84-7D37-4C04-A7BC-453DE7CEEFE7" bpmnElement="_795B6C84-7D37-4C04-A7BC-453DE7CEEFE7">
         <dc:Bounds height="56.0" width="56.0" x="327.0" y="165.0"/>
       </bpmndi:BPMNShape>
@@ -146,19 +177,19 @@ Symptoms]]></drools:metaValue>
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>
-  <bpmn2:relationship id="_7rnsYpe8EeueUZy3NQNgHA" type="BPSimData">
+  <bpmn2:relationship id="_aoVcTZe9EeueUZy3NQNgHA" type="BPSimData">
     <bpmn2:extensionElements>
       <bpsim:BPSimData>
         <bpsim:Scenario xsi:type="bpsim:Scenario" id="default" name="Simulationscenario">
           <bpsim:ScenarioParameters xsi:type="bpsim:ScenarioParameters"/>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_795B6C84-7D37-4C04-A7BC-453DE7CEEFE7" id="_7rnsY5e8EeueUZy3NQNgHA">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_795B6C84-7D37-4C04-A7BC-453DE7CEEFE7" id="_aoVcTpe9EeueUZy3NQNgHA">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
               </bpsim:ProcessingTime>
             </bpsim:TimeParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_FCEDEDAB-ADF7-4505-984B-410177C1AAAE" id="_7rnsZJe8EeueUZy3NQNgHA">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_FCEDEDAB-ADF7-4505-984B-410177C1AAAE" id="_aoVcT5e9EeueUZy3NQNgHA">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -178,7 +209,7 @@ Symptoms]]></drools:metaValue>
               </bpsim:UnitCost>
             </bpsim:CostParameters>
           </bpsim:ElementParameters>
-          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_70D423D8-AE3D-4B4F-9841-3F1E38A57553" id="_7rnsZZe8EeueUZy3NQNgHA">
+          <bpsim:ElementParameters xsi:type="bpsim:ElementParameters" elementRef="_70D423D8-AE3D-4B4F-9841-3F1E38A57553" id="_aoVcUJe9EeueUZy3NQNgHA">
             <bpsim:TimeParameters xsi:type="bpsim:TimeParameters">
               <bpsim:ProcessingTime xsi:type="bpsim:Parameter">
                 <bpsim:NormalDistribution mean="0.0" standardDeviation="0.0"/>
@@ -201,7 +232,7 @@ Symptoms]]></drools:metaValue>
         </bpsim:Scenario>
       </bpsim:BPSimData>
     </bpmn2:extensionElements>
-    <bpmn2:source>_7rnFUJe8EeueUZy3NQNgHA</bpmn2:source>
-    <bpmn2:target>_7rnFUJe8EeueUZy3NQNgHA</bpmn2:target>
+    <bpmn2:source>_aoVcMJe9EeueUZy3NQNgHA</bpmn2:source>
+    <bpmn2:target>_aoVcMJe9EeueUZy3NQNgHA</bpmn2:target>
   </bpmn2:relationship>
 </bpmn2:definitions>
