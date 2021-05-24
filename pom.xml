@@ -15,7 +15,7 @@
     <!--dependency>
       <groupId>org.kie</groupId>
       <artifactId>kie-api</artifactId>
-      <version>7.48.0.Final-redhat-00004</version>
+      <version>7.48.0.Final-redhat-00006</version>
       <scope>provided</scope>
     </dependency -->
     <dependency>
@@ -41,9 +41,38 @@
       <plugin>
         <groupId>org.kie</groupId>
         <artifactId>kie-maven-plugin</artifactId>
-        <version>7.48.0.Final-redhat-00004</version>
+        <version>7.48.0.Final-redhat-00006</version>
         <extensions>true</extensions>
       </plugin>
     </plugins>
   </build>
+
+  <repositories>
+    <repository>
+      <id>redhat-ga</id>
+      <name>Red Hat GA</name>
+      <url>https://maven.repository.redhat.com/ga/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <pluginRepositories>
+    <pluginRepository>
+      <id>redhat-ga</id>
+      <url>https://maven.repository.redhat.com/ga/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
 </project>
