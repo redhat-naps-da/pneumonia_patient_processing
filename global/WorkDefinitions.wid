@@ -128,5 +128,17 @@
         "parameters" : [
             "Condition" : new StringDataType()
         ]
+    ],
+    [
+        "name" : "FHIRServer",
+        "displayName" : "FHIR Server",
+        "icon" : "fhir.png",
+
+        "parameters" : [
+          "workItemName" : new StringDataType(),
+          "Observation" : new ObjectDataType(),
+          "Encounter" : new ObjectDataType(),
+          "Patient" : new ObjectDataType()
+        ]
     ]
 ]
